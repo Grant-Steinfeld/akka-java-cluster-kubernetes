@@ -1,4 +1,4 @@
-apiVersion: extensions/v1beta1
+apiVersion: apps/v1
 kind: Deployment
 metadata:
   labels:
@@ -24,10 +24,10 @@ spec:
     spec:
       containers:
       - name: akka-cluster-demo
-# Use the following line when running with minishift
-#        image: akka-cluster-demo:1.0.0
+# Use the following line when running with minikube using dockerhub.com register
+        image: mckeeh3/akka-cluster-demo:1.0.0
 # Use the following line when running with OpenShift and using the internal container registry
-        image: image-registry.openshift-image-registry.svc:5000/akka-cluster-1/akka-cluster-demo:1.0.0
+        #image: image-registry.openshift-image-registry.svc:5000/akka-cluster-1/akka-cluster-demo:1.0.0
         imagePullPolicy: Always
         livenessProbe:
           tcpSocket:

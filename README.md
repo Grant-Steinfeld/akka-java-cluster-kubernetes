@@ -1,3 +1,31 @@
+ kc create -f kubernetes/create-namespace.json
+
+5911  docker pull mckeeh3/akka-cluster-demo:1.0.0
+ 5912  docker images
+ 5913  docker image inspect ce7cadddf64b
+ 5914  docker image inspect ce7cadddf64b -o yaml
+ 5915  docker image inspect ce7cadddf64b
+ 5916  cls
+ 5917  clear
+ 5918  kubectl apply -f kubernetes/akka-cluster-deployment.yml
+ 5919  kc get pods -w
+ 5920  pwd
+ 5921  kc get replicasets
+ 5922  kc describe replicasets
+ 5923  kc expose --help
+ 5924  kc expose deployment akka-cluster-demo --type=NodePort --port 8080
+ 5925  mk ip
+ 5926  kc get services
+ 5927  export NODE_PORT=$(kubectl get services/akka-cluster-demo -o go-template='{{(index .spec.ports 0).nodePort}}')
+ 5928  echo $NODE_PORT
+ 5929* mk dashboard
+ 5930* kc scale --replicas=2 deployment/akka-cluster-demo
+ 5931* kc scale --replicas=4 deployment/akka-cluster-demo
+ 5932* kc get pods
+ 5933* kc scale --replicas=2 deployment/akka-cluster-demo
+ 5934* kc scale --replicas=4 deployment/akka-cluster-demo
+
+
 ## Akka Java Cluster Kubernetes Example
 
 ### Introduction
